@@ -4,5 +4,9 @@
 
 For example: 
 
-- 2022-10-24 18:00 Worked for 1 hour.
-  - *List the things you have done.*
+- 2024-04-08 - 30min
+  - Implemented *very* basic framework
+  - Realised the *many* things I have no idea how to do
+    - I need to be able to replace text with other text
+    - I need to be able to update text without reloading the program
+    - I need to refamiliarise myself with using buttons

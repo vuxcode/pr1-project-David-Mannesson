@@ -1,7 +1,8 @@
 <!-- Start writing your project code in this file! -->
 <meta name="color-scheme" content="dark">
 
-<button onclick="updatescreen()" onclick="round()">Hit Me!</button>
+<button onclick="info">Remove text</button>
+<button onclick="lucky">Hit Me!</button>
 <div id="infoElement"></div>
 <div id="dealerElement"></div>
 <div id="playerElement"></div>
@@ -19,15 +20,30 @@ infoOutput.innerText = info;
 dealerOutput.innerText = dealer;
 playerOutput.innerText = player;
 
-function updatescreen() {
+function info () {
+  if (info == "Introduction text") {
+    info += " "
+  }
+  else {
+    info += "Introduction text"
+  }
+  infoOutput.innerText = info;
+}
+
+function lucky () {
+  function updatescreen() {
   dealerOutput.innerText = dealer;
   playerOutput.innerText = player;
 }
-
-function round() {
+  function round() {
   dealer += 3
   player += 4
 }
+}
+
+
+
+
 
 
 </script>

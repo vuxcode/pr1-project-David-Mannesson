@@ -5,4 +5,4 @@
 1. Problem: I want one button to run both the function which adds numbers to the points as well as the function which updates the screen
  - Solution1: Add semicolons [failure]
  - solution2: Integrate both functions into one overarching function [failure]
- - solution3: ...
+ - solution3: Start drinking [Awaiting approval...]

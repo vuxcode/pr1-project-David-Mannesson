@@ -1,17 +1,23 @@
 <!-- Start writing your project code in this file! -->
+<meta name="color-scheme" content="dark">
+
 <button>Hit Me!</button>
 <div id="infoElement"></div>
 <div id="dealerElement"></div>
 <div id="playerElement"></div>
 
 <script>
-  var intro = "Introduction text";
+  var info = "Introduction text";
   var dealer = 0;
   var player = 0;
 
-  var dealerOutput = document.getElementById("dealerElement");
+  var infoOutput = document.getElementById("infoElement");
   var dealerOutput = document.getElementById("dealerElement");
   var playerOutput = document.getElementById("playerElement");
   
-  document.write(intro)
+  infoOutput.innerText = info;
+  function updatescreen() {
+  dealerOutput.innerText = dealer;
+  playerOutput.innerText = player;
+}
 </script>

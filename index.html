@@ -20,13 +20,27 @@ infoOutput.innerText = info;
 dealerOutput.innerText = dealer;
 playerOutput.innerText = player;
 
+
+function round1() {
+dealer += 3
+player += 4
+}
+
+function deck() {
+  for (var suit = 1; suit < 5; suit++) {
+    console.log("suit " + suit)
+    for (var card = 1; card < 11; card++) {
+      console.log("card " + card)
+    }
+    for (var face = 1; face < 4; face++) {
+      console.log("face " + face)
+    }
+  }
+}
+
 function updatescreen() {
 dealerOutput.innerText = dealer;
 playerOutput.innerText = player;
-}
-function round() {
-dealer += 3
-player += 4
 }
 
 function intro () {
@@ -40,7 +54,7 @@ function intro () {
 }
 
 function lucky () {
-  round();
+  round1();
   updatescreen();
 }
 

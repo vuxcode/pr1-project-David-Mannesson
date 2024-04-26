@@ -1,7 +1,7 @@
 <!-- Start writing your project code in this file! -->
 <meta name="color-scheme" content="dark">
 
-<button onclick="intro()">Remove text</button>
+<button onclick="intro()">Hide/Show Text</button>
 <button onclick="lucky()">Hit Me!</button>
 <div id="infoElement"></div>
 <div id="dealerElement"></div>
@@ -21,21 +21,29 @@ dealerOutput.innerText = dealer;
 playerOutput.innerText = player;
 
 
-function round1() {
+function roundPro() {
 dealer += 3
 player += 4
 }
 
-function deck() {
+function deckCreation() {
+  var deck = [];
   for (var suit = 1; suit < 5; suit++) {
     console.log("suit " + suit)
     for (var card = 1; card < 11; card++) {
       console.log("card " + card)
+      deck.push(card);
     }
     for (var face = 1; face < 4; face++) {
       console.log("face " + face)
+      faceTen = 10
+      deck.push(faceTen);
     }
   }
+}
+
+function round() {
+  var random = Math.random()
 }
 
 function updatescreen() {
@@ -54,7 +62,7 @@ function intro () {
 }
 
 function lucky () {
-  round1();
+  roundPro();
   updatescreen();
 }
 

@@ -11,6 +11,7 @@
 var info = "Introduction text";
 var dealer = 0;
 var player = 0;
+var deck = [];
 
 var infoOutput = document.getElementById("infoElement");
 var dealerOutput = document.getElementById("dealerElement");
@@ -20,20 +21,22 @@ infoOutput.innerText = info;
 dealerOutput.innerText = dealer;
 playerOutput.innerText = player;
 
-
 function roundPro() {
 dealer += 3
 player += 4
 }
 
 function deckCreation() {
-  var deck = [];
+  // "deck = [];" is used to clear the deck whenever a new one is created, so that the new cards aren't just added on top of the old deck
+  deck = [];
+  //The two subordinate for loops create a full suit of cards, with the overarching for loop repeating the subordinate loops until all 4 suits have been created
   for (var suit = 1; suit < 5; suit++) {
     console.log("suit " + suit)
     for (var card = 1; card < 11; card++) {
       console.log("card " + card)
       deck.push(card);
     }
+    //Every loop the faceTen variable is applied to the deck instead of the face variable itself
     for (var face = 1; face < 4; face++) {
       console.log("face " + face)
       faceTen = 10
@@ -41,12 +44,17 @@ function deckCreation() {
     }
   }
 }
+deckCreation()
 
+//This function choses one of the cards in the active deck
 function round() {
   var random = Math.random()
+  //The "deck.length" is used due to the size of the deck changing over the course of the game
+  var draw = Math.pow(random*deck.length)
+  console.log(draw)
 }
 
-function updatescreen() {
+function updateScreen() {
 dealerOutput.innerText = dealer;
 playerOutput.innerText = player;
 }
@@ -61,9 +69,10 @@ function intro () {
   infoOutput.innerText = info;
 }
 
+//This overarching function exists so that both the round and updateScreen can be tied to one button
 function lucky () {
   roundPro();
-  updatescreen();
+  updateScreen();
 }
 
 

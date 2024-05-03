@@ -18,13 +18,8 @@ var dealerOutput = document.getElementById("dealerElement");
 var playerOutput = document.getElementById("playerElement");
 
 infoOutput.innerText = info;
-dealerOutput.innerText = dealer;
-playerOutput.innerText = player;
-
-function roundPro() {
-dealer += 3
-player += 4
-}
+dealerOutput.innerText = "Dealer: " + dealer;
+playerOutput.innerText = "Player: " + player;
 
 function deckCreation() {
   // "deck = [];" is used to clear the deck whenever a new one is created, so that the new cards aren't just added on top of the old deck
@@ -47,16 +42,32 @@ function deckCreation() {
 deckCreation()
 
 //This function choses one of the cards in the active deck
-function round() {
+function dealerRound() {
   var random = Math.random()
+  console.log(random)
   //The "deck.length" is used due to the size of the deck changing over the course of the game
-  var draw = Math.pow(random*deck.length)
+  //Since the calculation uses a decimal numbers (The random var) the Math.floor is used to round it down to the nearest whole number
+  var draw = Math.floor(random*deck.length)
+  console.log(deck.length)
   console.log(draw)
+  dealer += deck[draw]
+  spliceatron9000(draw)
+}
+
+function playerRound() {
+  var random = Math.random()
+  var draw = Math.floor(random*deck.length)
+  player += deck[draw]
+  spliceatron9000(draw)
+}
+
+function spliceatron9000(ph) {
+  deck.splice(ph, 1)
 }
 
 function updateScreen() {
-dealerOutput.innerText = dealer;
-playerOutput.innerText = player;
+dealerOutput.innerText = "Dealer: " + dealer;
+playerOutput.innerText = "Player: " + player;
 }
 
 function intro () {
@@ -71,10 +82,10 @@ function intro () {
 
 //This overarching function exists so that both the round and updateScreen can be tied to one button
 function lucky () {
-  roundPro();
+  dealerRound();
+  playerRound();
   updateScreen();
 }
-
 
 
 

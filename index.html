@@ -42,7 +42,7 @@ function deckCreation() {
 }
 deckCreation()
 
-//This function choses one of the cards in the active deck
+//Draws the dealers card
 function dealerRound() {
   var random = Math.random()
   console.log(random)
@@ -52,20 +52,33 @@ function dealerRound() {
   console.log(deck.length)
   console.log(draw)
   dealer += deck[draw]
+  dealerHistory(deck[draw])
   spliceatron9000(draw)
 }
 
+//Draws the players card
 function playerRound() {
   var random = Math.random()
   var draw = Math.floor(random*deck.length)
   player += deck[draw]
+  playerHistory(deck[draw])
   spliceatron9000(draw)
 }
 
+//Removes drawn cards from the deck
 function spliceatron9000(ph) {
   deck.splice(ph, 1)
 }
 
+//Display the last drawn cards
+function playerHistory(ph) {
+  console.log("Player drew " + ph)
+}
+function dealerHistory(ph) {
+  console.log("Dealer drew " + ph)
+}
+
+//TODO: Make the player and dealer histories into variables, find a way to access said variables in the updateScreen and then add them to PLeayer/Dealer outputs
 function updateScreen() {
 dealerOutput.innerText = "Dealer: " + dealer;
 playerOutput.innerText = "Player: " + player;

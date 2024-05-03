@@ -3,6 +3,7 @@
 
 <button onclick="intro()">Hide/Show Text</button>
 <button onclick="lucky()">Hit Me!</button>
+<button onclick="playerStand()">Stand</button>
 <div id="infoElement"></div>
 <div id="dealerElement"></div>
 <div id="playerElement"></div>
@@ -80,15 +81,35 @@ function intro () {
   infoOutput.innerText = info;
 }
 
-//This overarching function exists so that both the round and updateScreen can be tied to one button
+//This overarching function exists so that both the round and updateScreen can be tied to one button (+more stuff)
 function lucky () {
   dealerRound();
   playerRound();
   updateScreen();
+  if (player > 21) {winner()}
+  else if (dealer > 21) {winner()}
 }
 
+//If the player stands, then the dealer will be able to continue drawing cards independently
+function playerStand () {
+  if (dealer <= player) {
+    dealerRound();
+    updateScreen();
+    if (dealer > 21) {winner()}
+    else {setTimeout(playerStand, 1000)}
+  }
+  else (winner())
+}
 
-
-
+//winner function calculates who has won when the game ends
+function winner () {
+  if (player == dealer) {console.log("draw")}
+  else if (player > 21 && dealer > 21) {console.log("bust draw")}
+  else if (player > dealer && player <= 21) {console.log("player win 1")}
+  else if (player <= 21 && dealer > 21) {console.log("player win 2")}
+  else if (dealer > player && dealer <= 21) {console.log("House win 1")}
+  else if (dealer <= 21 && player > 21) {console.log("House win 2")}
+  else {console.log("Ops, some error has appeared")}
+}
 
 </script>

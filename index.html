@@ -104,7 +104,7 @@ function intro () {
   infoOutput.innerText = info;
 }
 
-//This overarching function exists so that both the round and updateScreen can be tied to one button (+more stuff)
+//This overarching function exists so that both the round and updateScreen can be tied to one button (+more stuff) 
 function lucky () {
   if (dStand = true) {
     if (dealer < 12) {
@@ -128,7 +128,7 @@ function lucky () {
 //If the player stands, then the dealer will be able to continue drawing cards independently
 function playerStand () {
   pStood = "Stood"
-  if (dStand = false && dealer <= player) {
+  if (dStand = true && dealer <= player) {
     dealerRound();
     updateScreen();
     if (dealer > 21) {winner()}
@@ -140,13 +140,16 @@ function playerStand () {
 //winner function calculates who has won when the game ends
 function winner () {
   updateScreen();
-  if (player == dealer) {alert("draw")}
-  else if (player > 21 && dealer > 21) {alert("bust draw")}
-  else if (player > dealer && player <= 21) {alert("player win 1")}
-  else if (player <= 21 && dealer > 21) {alert("player win 2")}
-  else if (dealer > player && dealer <= 21) {alert("House win 1")}
-  else if (dealer <= 21 && player > 21) {alert("House win 2")}
-  else {alert("Ops, some error has appeared")}
+  function winnerCalc() {
+    if (player == dealer) {alert("draw")}
+    else if (player > 21 && dealer > 21) {alert("bust draw")}
+    else if (player > dealer && player <= 21) {alert("player win 1")}
+    else if (player <= 21 && dealer > 21) {alert("player win 2")}
+    else if (dealer > player && dealer <= 21) {alert("House win 1")}
+    else if (dealer <= 21 && player > 21) {alert("House win 2")}
+    else {alert("Ops, some error has appeared")}
+  }
+  setTimeout(winnerCalc, 500)
 }
 
 </script>

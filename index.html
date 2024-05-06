@@ -139,6 +139,7 @@ function playerStand () {
 
 //winner function calculates who has won when the game ends
 function winner () {
+  updateScreen();
   if (player == dealer) {alert("draw")}
   else if (player > 21 && dealer > 21) {alert("bust draw")}
   else if (player > dealer && player <= 21) {alert("player win 1")}

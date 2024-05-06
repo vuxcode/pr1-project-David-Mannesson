@@ -13,16 +13,19 @@ var info = "Introduction text";
 var dealer = 0;
 var player = 0;
 var deck = [];
-var pHistory = 0;
 var dHistory = 0;
+var pHistory = 0;
+var dStand = false;
+var dStood = "";
+var pStood = "";
 
 var infoOutput = document.getElementById("infoElement");
 var dealerOutput = document.getElementById("dealerElement");
 var playerOutput = document.getElementById("playerElement");
 
 infoOutput.innerText = info;
-dealerOutput.innerText = "Dealer: " + dealer;
-playerOutput.innerText = "Player: " + player;
+dealerOutput.innerText = "Dealer: " + dealer + " (" + dHistory + ") " + dStood;
+playerOutput.innerText = "Player: " + player + " (" + pHistory + ") " + pStood;
 
 function deckCreation() {
   // "deck = [];" is used to clear the deck whenever a new one is created, so that the new cards aren't just added on top of the old deck
@@ -85,8 +88,8 @@ function playerHistory(ph) {
 
 //TODO: Make the player and dealer histories into variables, find a way to access said variables in the updateScreen and then add them to Player/Dealer outputs
 function updateScreen() {
-dealerOutput.innerText = "Dealer: " + dealer + " (" + dHistory + ")";
-playerOutput.innerText = "Player: " + player + " (" + pHistory + ")";
+dealerOutput.innerText = "Dealer: " + dealer + " (" + dHistory + ") " + dStood;
+playerOutput.innerText = "Player: " + player + " (" + pHistory + ") " + pStood;
 }
 
 function intro () {
@@ -101,7 +104,19 @@ function intro () {
 
 //This overarching function exists so that both the round and updateScreen can be tied to one button (+more stuff)
 function lucky () {
-  dealerRound();
+  if (dStand = true) {
+    if (dealer < 12) {
+      dealerRound();
+    }
+    else if (dealer < player && dealer < 17) {
+      dealerRound();
+    }
+    else {
+      dStand = true
+      dStood = "Stood"
+    }
+  }
+  
   playerRound();
   updateScreen();
   if (player > 21) {winner()}
@@ -110,6 +125,7 @@ function lucky () {
 
 //If the player stands, then the dealer will be able to continue drawing cards independently
 function playerStand () {
+  pStood = "Stood"
   if (dealer <= player) {
     dealerRound();
     updateScreen();

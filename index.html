@@ -13,6 +13,8 @@ var info = "Introduction text";
 var dealer = 0;
 var player = 0;
 var deck = [];
+var pHistory = 0;
+var dHistory = 0;
 
 var infoOutput = document.getElementById("infoElement");
 var dealerOutput = document.getElementById("dealerElement");
@@ -71,17 +73,20 @@ function spliceatron9000(ph) {
 }
 
 //Display the last drawn cards
-function playerHistory(ph) {
-  console.log("Player drew " + ph)
-}
 function dealerHistory(ph) {
   console.log("Dealer drew " + ph)
+  dHistory = ph;
+}
+function playerHistory(ph) {
+  console.log("Player drew " + ph)
+  pHistory = ph;
 }
 
-//TODO: Make the player and dealer histories into variables, find a way to access said variables in the updateScreen and then add them to PLeayer/Dealer outputs
+
+//TODO: Make the player and dealer histories into variables, find a way to access said variables in the updateScreen and then add them to Player/Dealer outputs
 function updateScreen() {
-dealerOutput.innerText = "Dealer: " + dealer;
-playerOutput.innerText = "Player: " + player;
+dealerOutput.innerText = "Dealer: " + dealer + " (" + dHistory + ")";
+playerOutput.innerText = "Player: " + player + " (" + pHistory + ")";
 }
 
 function intro () {

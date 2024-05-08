@@ -1,7 +1,7 @@
 <!-- Start writing your project code in this file! -->
 <meta name="color-scheme" content="dark">
 
-<button onclick="">Restart</button>
+<button onclick="restart()">Restart</button>
 <button onclick="intro()">Hide/Show Text</button>
 <button onclick="lucky()">Hit Me!</button>
 <button onclick="playerStand()">Stand</button>
@@ -88,7 +88,6 @@ function playerHistory(ph) {
 }
 
 
-//TODO: Make the player and dealer histories into variables, find a way to access said variables in the updateScreen and then add them to Player/Dealer outputs
 function updateScreen() {
 dealerOutput.innerText = "Dealer: " + dealer + " (" + dHistory + ") " + dStood;
 playerOutput.innerText = "Player: " + player + " (" + pHistory + ") " + pStood;
@@ -141,15 +140,27 @@ function playerStand () {
 function winner () {
   updateScreen();
   function winnerCalc() {
-    if (player == dealer) {alert("draw")}
-    else if (player > 21 && dealer > 21) {alert("bust draw")}
-    else if (player > dealer && player <= 21) {alert("player win 1")}
-    else if (player <= 21 && dealer > 21) {alert("player win 2")}
-    else if (dealer > player && dealer <= 21) {alert("House win 1")}
-    else if (dealer <= 21 && player > 21) {alert("House win 2")}
-    else {alert("Ops, some error has appeared")}
+    if (player == dealer) {alert("It's a Draw")}
+    else if (player > 21 && dealer > 21) {alert("It's a Draw")}
+    else if (player > dealer && player <= 21) {alert("Player Wins!")}
+    else if (player <= 21 && dealer > 21) {alert("Player Wins!")}
+    else if (dealer > player && dealer <= 21) {alert("House Wins")}
+    else if (dealer <= 21 && player > 21) {alert("House Wins")}
+    else {alert("Oops, some error has appeared")}
   }
   setTimeout(winnerCalc, 500)
+}
+
+function restart () {
+  dealer = 0;
+  player = 0;
+  dHistory = 0;
+  pHistory = 0;
+  dStand = false;
+  dStood = "";
+  pStood = "";
+  deckCreation()
+  updateScreen()
 }
 
 </script>

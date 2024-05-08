@@ -105,7 +105,7 @@ function intro () {
 
 //This overarching function exists so that both the round and updateScreen can be tied to one button (+more stuff) 
 function lucky () {
-  if (dStand = true) {
+  if (dStand == false) {
     if (dealer < 12) {
       dealerRound();
     }
@@ -127,7 +127,7 @@ function lucky () {
 //If the player stands, then the dealer will be able to continue drawing cards independently
 function playerStand () {
   pStood = "Stood"
-  if (dStand = true && dealer <= player) {
+  if (dStand == false && dealer <= player) {
     dealerRound();
     updateScreen();
     if (dealer > 21) {winner()}

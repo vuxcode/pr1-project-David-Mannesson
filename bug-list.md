@@ -12,3 +12,6 @@
  - Solution2.1: Just doing it [failure]
  - Solution2.2: see Solution1.3
  - Solution2.3: Had the same name for the function as the variable, so I changed one of them. Replaced the "+=" with just "=".
+
+3. Problem: If a person stands, while the computer has already stood, then can draw another card, which it shouldn't be able to.
+ - Solution 3.1: The relevant conditions needed to be written with two "=" instead of one

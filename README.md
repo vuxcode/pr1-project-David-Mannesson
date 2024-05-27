@@ -12,7 +12,10 @@ The final program is not the goal! The aim of the project is to show how you hav
 
 # Project Summary
 
-> Before the final submission date you should include a "PROJECT SUMMARY" in this section here. 
+> What I have written is a basic card-game program, in which one player can play a simplified version of blackjack against the computer program.
+> When it comes to my experience of the project, I will admit I don't remember much of the process itself. I can however say without a doubt that I was really smart of me to go to so many of the workshops, since I would not have had the needed motivation to finish it without a teacher hanging over my shoulder. I can also say that I have found a preference for JS compared to HTML.
+> If I had the time, I would actually have liked to add Ace card supervalues. By this I mean, I wish the playing parties could, in the case of drawing a ace, be able to chose to value it at 10 or 1, like one can in actual blackjack. I could also have integrated some HTML/CSS code to make the program more visually interesting (note that I say "could", since I wouldn't actually want to do that).
+> When it comes to the budget, I don't really know. Since I didn't write in the time-report more than once and I don't remember much of the process, I can't rightly say if I remained within the time budget. Though if I was forced to guess, I would guess that I remained inside it. Still, that's just a guess. 
 
 # User Guide
 

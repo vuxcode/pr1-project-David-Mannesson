@@ -12,6 +12,7 @@
 <script>
 var info = "Welcome to this Blackjack Game! This is a heavily modified version of the game Blackjack for 1 human player. The goal is to draw cards to reach the total number of 21 or at least go higher than your Computer opponent. If you go over 21 then you go 'Bust', which automatically loses you the game (If both players go bust it's a draw). You can chose to 'Stand', which just means you chose to stop drawing cards. It can be the best thing to do if you're on a high number and don't want to risk going bust. The computer opponent can also chose to stand. The opponent can continue drawing cards after the other has stood, until they either go bust or themselves stand. The game is played with a standard 52-card deck, with all face cards being worth a value of 10.";
 
+// Here all the relevant global variables are kept
 var dealer = 0;
 var player = 0;
 var deck = [];
@@ -21,6 +22,7 @@ var dStand = false;
 var dStood = "";
 var pStood = "";
 
+// These variables are linked to the text elements, making it so that they are visible on-screen
 var infoOutput = document.getElementById("infoElement");
 var dealerOutput = document.getElementById("dealerElement");
 var playerOutput = document.getElementById("playerElement");
@@ -29,6 +31,7 @@ infoOutput.innerText = info;
 dealerOutput.innerText = "Dealer: " + dealer + " (" + dHistory + ") " + dStood;
 playerOutput.innerText = "Player: " + player + " (" + pHistory + ") " + pStood;
 
+//This function tells the program how to create the deck
 function deckCreation() {
   // "deck = [];" is used to clear the deck whenever a new one is created, so that the new cards aren't just added on top of the old deck
   deck = [];
@@ -47,6 +50,7 @@ function deckCreation() {
     }
   }
 }
+// This activates it the first time when the program is loaded
 deckCreation()
 
 //Draws the dealers card
@@ -87,7 +91,7 @@ function playerHistory(ph) {
   pHistory = ph;
 }
 
-
+// This function updates the on-screen text
 function updateScreen() {
 dealerOutput.innerText = "Dealer: " + dealer + " (" + dHistory + ") " + dStood;
 playerOutput.innerText = "Player: " + player + " (" + pHistory + ") " + pStood;
